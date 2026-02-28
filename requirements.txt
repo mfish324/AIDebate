@@ -1,0 +1,24 @@
+# Multi-AI Debate System Dependencies
+
+# AI Provider SDKs
+anthropic>=0.18.0
+openai>=1.12.0
+groq>=0.4.0
+
+# CLI Framework
+typer[all]>=0.9.0
+
+# Rich console output
+rich>=13.0.0
+
+# Configuration
+pyyaml>=6.0
+
+# URL slug generation
+python-slugify>=8.0.0
+
+# Async HTTP (backup, SDKs have their own)
+aiohttp>=3.9.0
+
+# Environment variables from .env file
+python-dotenv>=1.0.0
