@@ -190,6 +190,8 @@ class VotingSystem:
             "gpt-4": "openai",
             "groq": "groq",
             "llama": "groq",
+            "gemini": "gemini",
+            "google": "gemini",
         }
 
         return name_map.get(name_lower, name_lower)

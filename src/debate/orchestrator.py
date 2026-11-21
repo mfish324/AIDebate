@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import TYPE_CHECKING, Callable
 
-from ..providers import AnthropicProvider, GroqProvider, OpenAIProvider
+from ..providers import AnthropicProvider, GeminiProvider, GroqProvider, OpenAIProvider
 from ..providers.base import BaseProvider
 from ..utils.costs import CostTracker
 from .phases import DebatePhase, PhaseManager, PhaseResult
@@ -84,6 +84,7 @@ class DebateOrchestrator:
         "claude": AnthropicProvider,
         "openai": OpenAIProvider,
         "groq": GroqProvider,
+        "gemini": GeminiProvider,
     }
 
     def __init__(

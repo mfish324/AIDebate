@@ -23,12 +23,14 @@ PROVIDER_COLORS = {
     "claude": "purple",
     "openai": "green",
     "groq": "orange3",
+    "gemini": "cyan",
 }
 
 PROVIDER_NAMES = {
     "claude": "Claude",
     "openai": "GPT-4",
     "groq": "Llama",
+    "gemini": "Gemini",
 }
 
 
@@ -71,7 +73,7 @@ class ConsoleOutput:
         header = Panel(
             Text.from_markup(
                 f"[bold]{self._robot} MULTI-AI DEBATE[/bold]\n"
-                "[dim]Claude vs GPT-4 vs Llama[/dim]"
+                "[dim]Claude vs GPT-4 vs Gemini vs Llama[/dim]"
             ),
             border_style="blue",
         )

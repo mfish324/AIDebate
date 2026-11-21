@@ -77,7 +77,7 @@ class CostConfig:
         provider_costs = {}
         warning_threshold = data.get("warning_threshold", 1.00)
 
-        for provider in ["claude", "openai", "groq"]:
+        for provider in ["claude", "openai", "gemini", "groq"]:
             if provider in data:
                 provider_costs[provider] = {
                     "input": data[provider].get("input", 0.0),
@@ -142,19 +142,25 @@ def get_default_config() -> Config:
             "providers": {
                 "claude": {
                     "enabled": True,
-                    "model": "claude-sonnet-4-20250514",
+                    "model": "claude-sonnet-4-6",
                     "max_tokens": 1000,
                     "temperature": 0.7,
                 },
                 "openai": {
                     "enabled": True,
-                    "model": "gpt-4o",
+                    "model": "gpt-4.1",
+                    "max_tokens": 1000,
+                    "temperature": 0.7,
+                },
+                "gemini": {
+                    "enabled": True,
+                    "model": "gemini-2.5-flash",
                     "max_tokens": 1000,
                     "temperature": 0.7,
                 },
                 "groq": {
                     "enabled": True,
-                    "model": "llama-3.3-70b-versatile",
+                    "model": "llama-4-scout-17b-16e-instruct",
                     "max_tokens": 1000,
                     "temperature": 0.7,
                 },
@@ -171,7 +177,8 @@ def get_default_config() -> Config:
             },
             "costs": {
                 "claude": {"input": 0.003, "output": 0.015},
-                "openai": {"input": 0.005, "output": 0.015},
+                "openai": {"input": 0.002, "output": 0.008},
+                "gemini": {"input": 0.00015, "output": 0.0006},
                 "groq": {"input": 0.00059, "output": 0.00079},
                 "warning_threshold": 1.00,
             },
@@ -201,6 +208,7 @@ def get_api_key(provider: str) -> str | None:
     key_mapping = {
         "claude": "ANTHROPIC_API_KEY",
         "openai": "OPENAI_API_KEY",
+        "gemini": "GOOGLE_API_KEY",
         "groq": "GROQ_API_KEY",
     }
     env_var = key_mapping.get(provider)
